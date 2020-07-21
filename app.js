@@ -75,6 +75,45 @@ server.route({
   },
 });
 
+// Find by id route
+server.route({
+  method: 'GET',
+  path: '/person/{id}',
+  handler: async (request, h) => {
+    try {
+      const person = await PersonModel.findById(request.params.id).exec();
+      return h.response(person);
+    } catch (error) {
+      return h.response(error).code(500);
+    }
+  },
+});
+
+// Update route
+server.route({
+  method: 'PUT',
+  path: '/person/{id}',
+  options: {
+    validate: {
+      payload: Joi.object({
+        firstName: Joi.string().optional(),
+        lastName: Joi.string().optional(),
+      }),
+      failAction: (request, h, error) => {
+        return error.isJoi ? h.response(error.details[0]).takeover() : h.response(error).takeover();
+      },
+    },
+  },
+  handler: async (request, h) => {
+    try {
+      const result = await PersonModel.findByIdAndUpdate(request.params.id, request.payload, { new: true });
+      return h.response(result);
+    } catch (error) {
+      return h.response(error).code(500);
+    }
+  },
+});
+
 // Not-Found route
 server.route({
   method: '*',
