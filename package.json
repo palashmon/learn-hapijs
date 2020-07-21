@@ -1,0 +1,27 @@
+{
+  "name": "learn-hapijs",
+  "version": "1.0.0",
+  "description": "A simple REST API using Hapi.js and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palashmon/learn-hapijs.git"
+  },
+  "keywords": [],
+  "author": "Palash Mondal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/palashmon/learn-hapijs/issues"
+  },
+  "homepage": "https://github.com/palashmon/learn-hapijs#readme",
+  "dependencies": {
+    "@hapi/hapi": "^19.2.0",
+    "@hapi/joi": "^17.1.1",
+    "mongoose": "^5.9.25"
+  }
+}
