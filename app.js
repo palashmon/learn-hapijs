@@ -114,6 +114,20 @@ server.route({
   },
 });
 
+// Delete person route
+server.route({
+  method: 'DELETE',
+  path: '/person/{id}',
+  handler: async (request, h) => {
+    try {
+      const result = await PersonModel.findByIdAndDelete(request.params.id);
+      return h.response(result);
+    } catch (error) {
+      return h.response(error).code(500);
+    }
+  },
+});
+
 // Not-Found route
 server.route({
   method: '*',
