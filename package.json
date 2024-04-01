@@ -22,6 +22,6 @@
   "dependencies": {
     "@hapi/hapi": "^19.2.0",
     "@hapi/joi": "^17.1.1",
-    "mongoose": "^5.9.25"
+    "mongoose": "^8.2.4"
   }
 }
